@@ -1,0 +1,2 @@
+- name: install bundler
+  gem: name=bundler executable=~/.anyenv/envs/rbenv/shims/gem user_install=no

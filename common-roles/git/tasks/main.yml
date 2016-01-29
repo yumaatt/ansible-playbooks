@@ -1,0 +1,4 @@
+- name: "download gibo"
+  get_url: url=https://raw.github.com/simonwhitaker/gibo/master/gibo dest=/usr/local/bin/gibo mode=0755
+  become: yes
+

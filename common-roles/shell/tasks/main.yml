@@ -1,0 +1,3 @@
+- name: change default shell
+  user: name={{ item.user }} shell={{ item.shell }}
+  with_items: default_shell

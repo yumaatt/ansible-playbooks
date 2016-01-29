@@ -6,6 +6,7 @@
 #application_name: example
 #application_root: /var/env/{{application_name}}
 #root_password: example
+user: vagrant
 #
 #
 ## - - - - - - - - - - - - - - - - - - - - - -

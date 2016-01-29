@@ -1,0 +1,5 @@
+- name: install cpanm
+  command: creates=~/.anyenv/envs/plenv/shims/cpanm ~/.anyenv/envs/plenv/bin/plenv install-cpanm
+
+- name: cpanm Carton
+  command: creates=~/.anyenv/envs/plenv/shims/carton ~/.anyenv/envs/plenv/shims/cpanm Carton

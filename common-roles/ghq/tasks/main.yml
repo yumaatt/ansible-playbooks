@@ -1,0 +1,6 @@
+- name: install ghq
+  command: creates=~/.go/bin/ghq go get github.com/motemen/ghq
+
+- name: ghq get repo
+  command: creates=~/.ghq/github.com/{{ item.user }}/{{ item.repo }} ghq get https://github.com/{{ item.user }}/{{ item.repo }}.git
+  with_items: ghq_repos

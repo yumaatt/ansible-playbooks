@@ -1,0 +1,7 @@
+- name: download peco
+  unarchive: creates=/usr/local/bin/peco src=https://github.com/peco/peco/releases/download/v0.3.5/peco_linux_amd64.tar.gz dest=/tmp copy=no
+
+- name: copy peco
+  command: creates=/usr/local/bin/peco cp /tmp/peco_linux_amd64/peco /usr/local/bin/peco
+  become: yes
+
