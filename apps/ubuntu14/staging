@@ -1,0 +1,11 @@
+[web-servers]
+www1.example.com
+www2.example.com
+
+[db-servers]
+db1.example.com
+db2.example.com
+
+[staging:children]
+web-servers
+db-servers

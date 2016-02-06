@@ -34,6 +34,7 @@ packages_ubuntu:
   - tmux
   - ntp
   - ntpdate
+  - gcc
 
 anyenv_plugins:
   - anyenv-update
@@ -89,3 +90,8 @@ default_shell:
 emacs_versions:
   - 24.4
 emacs_version: 24.4
+
+ntp_servers:
+  - server ntp1.jst.mfeed.ad.jp
+  - server ntp2.jst.mfeed.ad.jp
+  - server ntp3.jst.mfeed.ad.jp

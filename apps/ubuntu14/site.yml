@@ -11,15 +11,18 @@
   #  - ansible_ssh_pass: '{{ custom_ssh_pass }}'
   roles:
     #- ../../common-roles/common
-    #- ../../common-roles/package_ubuntu
+    #- ../../common-roles/dotfiles
+    - ../../common-roles/package_ubuntu
     #- ../../common-roles/git
     #- ../../common-roles/peco
     #- ../../common-roles/anyenv
     #- ../../common-roles/rbenv
     #- ../../common-roles/plenv
-    - ../../common-roles/ghq
+    #- ../../common-roles/ghq
     #- ../../common-roles/shell
     #- ../../common-roles/evm
+    #- ../../common-roles/ntp
+    #
     #- ../../common-roles/nginx
     #- nginx-config
     #- ../../common-roles/php
