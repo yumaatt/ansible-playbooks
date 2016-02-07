@@ -8,6 +8,9 @@
   git: repo=https://github.com/znz/{{ item }}.git dest=~/.anyenv/plugins/{{ item }} update=no
   with_items: anyenv_plugins
 
+- name: anyenv envs directory
+  file: path=~/.anyenv/envs state=directory mode=0775
+
 - name: anyenv install envs
   command: creates=~/.anyenv/envs/{{ item }} ~/.anyenv/bin/anyenv install {{ item }}
   with_items: anyenv
@@ -19,6 +22,7 @@
 - name: check python version
   shell: cat ~/.anyenv/envs/pyenv/version
   changed_when: false
+  ignore_errors: yes
   register: pyenv_python_version
 
 - name: set python version
@@ -32,6 +36,7 @@
 - name: check ruby version
   shell: cat ~/.anyenv/envs/rbenv/version
   changed_when: false
+  ignore_errors: yes
   register: rbenv_ruby_version
 
 - name: set ruby version
@@ -45,6 +50,7 @@
 - name: check perl version
   shell: cat ~/.anyenv/envs/plenv/version
   changed_when: false
+  ignore_errors: yes
   register: plenv_perl_version
 
 - name: set perl version
@@ -58,6 +64,7 @@
 - name: check nodejs version
   shell: cat ~/.anyenv/envs/ndenv/version
   changed_when: false
+  ignore_errors: yes
   register: ndenv_nodejs_version
 
 - name: set nodejs version
@@ -71,6 +78,7 @@
 - name: check go version
   shell: cat ~/.anyenv/envs/goenv/version
   changed_when: false
+  ignore_errors: yes
   register: goenv_go_version
 
 - name: set go version
