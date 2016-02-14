@@ -1,0 +1,179 @@
+- name: set fact
+  set_fact:
+    pyenv: "{{ pyenv + group_pyenv }}"
+    rbenv: "{{ rbenv + group_rbenv }}"
+    plenv: "{{ plenv + group_plenv }}"
+    ndenv: "{{ ndenv + group_ndenv }}"
+    goenv: "{{ goenv + group_goenv }}"
+
+- name: install anyenv
+  git: repo=https://github.com/riywo/anyenv dest=~/.anyenv update=no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: anyenv plugins directory
+  file: path=~/.anyenv/plugins state=directory mode=0775
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: anyenv plugins
+  git: repo=https://github.com/znz/{{ item.1 }}.git dest=~/.anyenv/plugins/{{ item.1 }} update=no
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_nested:
+    - user_data
+    - anyenv_plugins
+
+- name: anyenv envs directory
+  file: path=~/.anyenv/envs state=directory mode=0775
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: anyenv install envs
+  command: creates=~/.anyenv/envs/{{ item.1 }} ~/.anyenv/bin/anyenv install {{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_nested:
+    - user_data
+    - anyenv
+
+- name: install python
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/pyenv/bin/pyenv install {{ item.1 }}
+    ~/.anyenv/envs/pyenv/bin/pyenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/pyenv/versions/{{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - pyenv
+    - python_versions
+
+- name: set python version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/pyenv/bin/pyenv global {{ item.python_version }}
+    executable=/bin/bash
+  changed_when: no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: pyenv
+
+- name: install ruby
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/rbenv/bin/rbenv install {{ item.1 }}
+    ~/.anyenv/envs/rbenv/bin/rbenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/rbenv/versions/{{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - rbenv
+    - ruby_versions
+
+- name: set ruby version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/rbenv/bin/rbenv global {{ item.ruby_version }}
+    executable=/bin/bash
+  changed_when: no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: rbenv
+
+- name: install perl
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/plenv/bin/plenv install {{ item.1 }}
+    ~/.anyenv/envs/plenv/bin/plenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/plenv/versions/{{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - plenv
+    - perl_versions
+
+- name: set perl version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/plenv/bin/plenv global {{ item.perl_version }}
+    executable=/bin/bash
+  changed_when: no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: plenv
+
+- name: install node
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/ndenv/bin/ndenv install {{ item.1 }}
+    ~/.anyenv/envs/ndenv/bin/ndenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/ndenv/versions/{{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - ndenv
+    - node_versions
+
+- name: set node version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/ndenv/bin/ndenv global {{ item.node_version }}
+    executable=/bin/bash
+  changed_when: no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: ndenv
+
+- name: install go
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/goenv/bin/goenv install {{ item.1 }}
+    ~/.anyenv/envs/goenv/bin/goenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/goenv/versions/{{ item.1 }}
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - goenv
+    - go_versions
+
+- name: set go version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/goenv/bin/goenv global {{ item.go_version }}
+    executable=/bin/bash
+  changed_when: no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: goenv
+
+- name: install bundler
+  gem: name=bundler executable=~/.anyenv/envs/rbenv/shims/gem user_install=no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: install cpanm
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.anyenv/envs/plenv/bin/plenv install-cpanm
+    ~/.anyenv/envs/plenv/bin/plenv rehash
+    executable=/bin/bash
+    creates=~/.anyenv/envs/plenv/shims/cpanm
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: cpanm Carton
+  command: creates=~/.anyenv/envs/plenv/shims/carton ~/.anyenv/envs/plenv/shims/cpanm Carton
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data

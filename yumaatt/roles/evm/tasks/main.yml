@@ -1,0 +1,49 @@
+- name: set fact
+  set_fact:
+    evm: "{{ evm + group_evm }}"
+
+- name: install evm
+  git: repo=https://github.com/rejeep/evm.git dest=~/.evm update=no
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: evm
+
+- name: evm directory
+  file: path=~/.evm/evm state=directory mode=0775
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: evm
+
+- name: evm config path
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.evm/bin/evm config path ~/.evm/evm
+    executable=/bin/bash
+    creates=~/.evm/.config
+  changed_when: false
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: evm
+
+- name: install emacs
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.evm/bin/evm install emacs-{{ item.1 }}
+    executable=/bin/bash
+    creates=~/.evm/evm/emacs-{{ item.1 }}/bin/emacs
+  changed_when: false
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - evm
+    - emacs_versions
+
+- name: set emacs version
+  shell: |
+    eval "$(~/.anyenv/bin/anyenv init -)"
+    ~/.evm/bin/evm use emacs-{{ item.emacs_version }}
+    executable=/bin/bash
+  changed_when: false
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: evm

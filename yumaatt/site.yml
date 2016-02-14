@@ -1,0 +1,22 @@
+- hosts: all
+  vars_files:
+    - private_vars/{{stage}}.yml
+    - group_vars/{{stage}}.yml
+  roles:
+    - package_ubuntu
+    - common
+    - dotfiles
+    - git
+    - peco
+    - anyenv
+    - ghq
+    - evm
+    - ntp
+
+- hosts: local
+  vars_files:
+    - private_vars/{{stage}}.yml
+    - group_vars/{{stage}}.yml
+  roles:
+    - docker
+

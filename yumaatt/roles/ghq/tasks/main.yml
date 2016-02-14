@@ -1,0 +1,20 @@
+- name: set fact
+  when: group_ghq_repos is defined
+  set_fact:
+    ghq_repos: "{{ ghq_repos + group_ghq_repos }}"
+
+- name: install ghq
+  command: creates=~/.go/bin/ghq ~/.anyenv/envs/goenv/shims/go get github.com/motemen/ghq
+  environment:
+    GOPATH: /home/{{ item.user }}/.go
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data
+
+- name: ghq get repos
+  command: creates=~/.ghq/github.com/{{ item.1.user }}/{{ item.1.repo }} ~/.go/bin/ghq get https://github.com/{{ item.1.user }}/{{ item.1.repo }}.git
+  become: yes
+  become_user: "{{ item.0.user }}"
+  with_subelements:
+    - ghq_repos
+    - repos

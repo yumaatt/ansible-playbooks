@@ -1,0 +1,52 @@
+group_user_data:
+  - user: docker
+    #uid: 1000
+    shell: /usr/bin/zsh
+
+group_pyenv:
+  - user: docker
+    python_versions:
+      - 2.7.11
+      - 3.3.3
+    python_version: 3.3.3
+
+group_rbenv:
+  - user: docker
+    ruby_versions:
+      - 2.2.0 # for evm
+      - 2.2.4
+    ruby_version: 2.2.4
+
+group_plenv:
+  - user: docker
+    perl_versions:
+      - 5.16.3
+    perl_version: 5.16.3
+
+group_ndenv:
+  - user: docker
+    node_versions:
+      - v0.10.25
+    node_version: v0.10.25
+
+group_goenv:
+  - user: docker
+    go_versions:
+      - 1.5
+    go_version: 1.5
+
+group_ghq_repos:
+  - user: docker
+    repos:
+      - user: yumaatt
+        repo: hello_app
+      - user: yumaatt
+        repo: testrepo
+      - user: jpetazzo
+        repo: pipework
+
+group_evm:
+  - user: docker
+    emacs_versions:
+      - 24.4
+    emacs_version: 24.4

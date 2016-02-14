@@ -1,0 +1,58 @@
+group_user_data:
+  - user: vagrant
+    #uid: 1000
+    shell: /usr/bin/zsh
+
+group_pyenv:
+  - user: vagrant
+    python_versions:
+      - 2.7.11
+      - 3.3.3
+    python_version: 3.3.3
+
+group_rbenv:
+  - user: vagrant
+    ruby_versions:
+      - 2.2.0 # for evm
+      - 2.2.4
+    ruby_version: 2.2.4
+
+group_plenv:
+  - user: vagrant
+    perl_versions:
+      - 5.16.3
+    perl_version: 5.16.3
+
+group_ndenv:
+  - user: vagrant
+    node_versions:
+      - v0.10.25
+    node_version: v0.10.25
+
+group_goenv:
+  - user: vagrant
+    go_versions:
+      - 1.5
+    go_version: 1.5
+
+group_ghq_repos:
+  - user: vagrant
+    repos:
+      - user: yumaatt
+        repo: hello_app
+      - user: yumaatt
+        repo: testrepo
+      - user: yumaatt
+        repo: dotfiles
+      - user: yumaatt
+        repo: ansible-playbooks
+      - user: yumaatt
+        repo: dockerfiles
+      - user: jpetazzo
+        repo: pipework
+
+group_evm:
+  - user: vagrant
+    emacs_versions:
+      - 24.4
+    emacs_version: 24.4

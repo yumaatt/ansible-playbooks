@@ -1,6 +1,0 @@
-- name: install dotfiles
-  git: repo=https://github.com/yumaatt/dotfiles.git dest=~/.ghq/github.com/yumaatt/dotfiles update=no
-
-- name: setup dotfiles
-  command: ~/.ghq/github.com/yumaatt/dotfiles/setup.sh
-  changed_when: false

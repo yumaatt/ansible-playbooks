@@ -1,0 +1,37 @@
+---
+## - - - - - - - - - - - - - - - - - - - - - -
+## Common
+## - - - - - - - - - - - - - - - - - - - - - -
+#application_name: example
+#application_root: /var/env/{{application_name}}
+#root_password: example
+#user: vagrant
+#
+#
+## - - - - - - - - - - - - - - - - - - - - - -
+## Web
+## - - - - - - - - - - - - - - - - - - - - - -
+## base info (hosts名変更時はここのみを修正すればok)
+#server_name: "{{application_name}}.com"
+#web_document_root: /var/env/{{application_name}}/public
+#web_api_root: /var/env/{{application_name}}
+#
+## ssl certificate (roles/nginx/files)
+#nginx_ssl_certificate_path: /etc/nginx/conf.d/ssl
+#nginx_ssl_crt_name: server.crt
+#nginx_ssl_key_name: server.key
+#
+## nginx
+#nginx_worker_processes: 1 # nginx.conf
+#nginx_worker_connections: 1024 # nginx.conf
+#nginx_use_basic_auth: false # basic認証を使うかどうかのフラグ
+#nginx_basic_auth_user: xxx # basic認証ユーザ名
+#nginx_basic_auth_password: xxx # basic認証パスワード
+#
+#
+## - - - - - - - - - - - - - - - - - - - - - -
+## Db
+## - - - - - - - - - - - - - - - - - - - - - -
+#mysql_root_password: example
+#mysql_dbname:
+#  - example
