@@ -1,5 +1,5 @@
 - hosts:
-    - vagrant
+    - vagrant_ubuntu14
     - test_ubuntu14
   vars_files:
     - private_vars/{{stage}}.yml
@@ -15,7 +15,7 @@
     - evm
     - ntp
 
-- hosts: vagrant
+- hosts: vagrant_ubuntu14
   vars_files:
     - private_vars/{{stage}}.yml
     - group_vars/{{stage}}.yml

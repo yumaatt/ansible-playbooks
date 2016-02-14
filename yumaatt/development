@@ -4,10 +4,10 @@
 [test_ubuntu14:vars]
 ansible_ssh_user=docker
 
-[vagrant]
+[vagrant_ubuntu14]
 192.168.1.10
 
-[vagrant:vars]
+[vagrant_ubuntu14:vars]
 ansible_ssh_user=vagrant
 
 [mac]
