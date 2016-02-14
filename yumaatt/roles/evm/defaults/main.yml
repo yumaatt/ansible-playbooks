@@ -1,0 +1,9 @@
+evm:
+  - user: infra
+    emacs_versions:
+      - 24.4
+    emacs_version: 24.4
+  - user: app
+    emacs_versions:
+      - 24.4
+    emacs_version: 24.4

@@ -1,4 +1,6 @@
-- hosts: all
+- hosts:
+    - vagrant
+    - test_ubuntu14
   vars_files:
     - private_vars/{{stage}}.yml
     - group_vars/{{stage}}.yml
@@ -13,10 +15,20 @@
     - evm
     - ntp
 
-- hosts: local
+- hosts: vagrant
   vars_files:
     - private_vars/{{stage}}.yml
     - group_vars/{{stage}}.yml
   roles:
     - docker
 
+- hosts: mac
+  vars_files:
+    - private_vars/{{stage}}.yml
+    - group_vars/{{stage}}.yml
+  roles:
+    - homebrew
+    - common_mac
+    - dotfiles
+    - anyenv
+    - ghq

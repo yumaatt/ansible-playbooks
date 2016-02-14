@@ -1,0 +1,74 @@
+anyenv_plugins:
+  - anyenv-update
+  - anyenv-git
+
+anyenv:
+  - rbenv
+  - pyenv
+  - plenv
+  - ndenv
+  - crenv
+  - denv
+  - erlenv
+  - exenv
+  - goenv
+  - hsenv
+  - jenv
+  - luaenv
+  - phpenv
+  - Renv
+  - scalaenv
+
+pyenv:
+  - user: infra
+    python_versions:
+      - 2.7.11
+      - 3.3.3
+    python_version: 3.3.3
+  - user: app
+    python_versions:
+      - 2.7.11
+      - 3.3.3
+    python_version: 3.3.3
+
+rbenv:
+  - user: infra
+    ruby_versions:
+      - 2.2.0 # for evm
+      - 2.2.4
+    ruby_version: 2.2.4
+  - user: app
+    ruby_versions:
+      - 2.2.0 # for evm
+      - 2.2.4
+    ruby_version: 2.2.4
+
+plenv:
+  - user: infra
+    perl_versions:
+      - 5.16.3
+    perl_version: 5.16.3
+  - user: app
+    perl_versions:
+      - 5.16.3
+    perl_version: 5.16.3
+
+ndenv:
+  - user: infra
+    node_versions:
+      - v0.10.25
+    node_version: v0.10.25
+  - user: app
+    node_versions:
+      - v0.10.25
+    node_version: v0.10.25
+
+goenv:
+  - user: infra
+    go_versions:
+      - 1.5
+    go_version: 1.5
+  - user: app
+    go_versions:
+      - 1.5
+    go_version: 1.5

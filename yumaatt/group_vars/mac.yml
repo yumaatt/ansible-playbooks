@@ -1,0 +1,56 @@
+# override
+user_data:
+  - user: yuma.takahashi
+    shell: /usr/local/bin/zsh
+
+# override
+pyenv:
+  - user: yuma.takahashi
+    python_versions:
+      - 2.7.11
+      - 3.3.3
+    python_version: 3.3.3
+
+# override
+rbenv:
+  - user: yuma.takahashi
+    ruby_versions:
+      - 2.2.0 # for evm
+      - 2.2.4
+    ruby_version: 2.2.4
+
+# override
+plenv:
+  - user: yuma.takahashi
+    perl_versions:
+      - 5.16.3
+    perl_version: 5.16.3
+
+# override
+ndenv:
+  - user: yuma.takahashi
+    node_versions:
+      - v0.10.25
+    node_version: v0.10.25
+
+# override
+goenv:
+  - user: yuma.takahashi
+    go_versions:
+      - 1.5
+    go_version: 1.5
+
+# override
+ghq_repos:
+  - user: yuma.takahashi
+    repos:
+      - user: yumaatt
+        repo: hello_app
+      - user: yumaatt
+        repo: testrepo
+      - user: yumaatt
+        repo: mac
+      - user: yumaatt
+        repo: dotfiles
+      - user: yumaatt
+        repo: ansible-playbooks

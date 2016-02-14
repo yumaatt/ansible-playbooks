@@ -1,0 +1,112 @@
+homebrew_taps:
+  - caskroom/cask
+  - homebrew/versions
+  - caskroom/versions
+#  - homebrew/php
+#  - homebrew/apache
+
+homebrew_packages:
+  - { name: ansible }
+  - { name: brew-cask }
+  - { name: colordiff }
+  - { name: xz }
+  - { name: coreutils }
+  - { name: binutils }
+  - { name: findutils }
+  # for emacs flycheck
+  - { name: texinfo }
+  - { name: zsh }
+  - { name: git }
+  - { name: vim }
+  - { name: emacs }
+  - { name: graphviz }
+  - { name: htop-osx }
+  - { name: jq }
+  - { name: hub }
+  - { name: nkf }
+  - { name: openssl }
+  - { name: reattach-to-user-namespace }
+  - { name: rename }
+  - { name: tmux }
+  - { name: tig }
+  - { name: tree }
+  - { name: unrar }
+  - { name: wget }
+  - { name: zsh-completions }
+  - { name: gdbm }
+  - { name: pstree }
+  - { name: libevent }
+  - { name: pcre }
+  - { name: gibo }
+  - { name: readline }
+  - { name: cmake }
+  - { name: autoconf }
+  - { name: automake }
+  - { name: pkg-config }
+  - { name: ctags }
+  - { name: lv }
+  - { name: direnv }
+  - { name: peco }
+  - { name: fish }
+  - { name: ctags }
+  - { name: tofrodos }
+  - { name: lha }
+  - { name: flow }
+  - { name: packer }
+  - { name: socat }
+  - { name: rlwrap }
+  - { name: phantomjs }
+  - { name: autojump }
+  - { name: source-highlight }
+#  - { name: evm }
+#  - { name: boris }
+#  - { name: composer }
+#  - { name: httpd22 }
+#  - { name: mysql }
+#  - { name: node }
+#  - { name: php56, install_options: with-homebrew-apxs }
+#  - { name: php56-intl }
+#  - { name: php56-opcache }
+#  - { name: php56-apcu }
+#  - { name: php56-mcrypt }
+#  - { name: php56-xdebug }
+#  - { name: php56-xhprof }
+#  - { name: phpunit }
+#  - { name: python }
+#  - { name: sl }
+#  - { name: sqlite }
+#  - { name: screen }
+
+homebrew_cask_packages:
+#  - avast
+#  - caffeine
+#  - clipmenu
+#  - cooviewer
+#  - dropbox
+#  - eclipse-java
+#  - evernote
+#  - filezilla
+#  - firefox
+#  - flash-player
+#  - google-chrome
+#  - google-drive
+#  - google-japanese-ime
+#  - gyazo
+#  - heroku-toolbelt
+#  - java
+#  - karabiner
+#  - kobito
+#  - libreoffice
+#  - macdown
+#  - phpstorm
+#  - reaper
+#  - slack
+#  - skitch
+#  - skype
+#  - spectacle
+#  - sublime-text
+#  - vagrant
+#  - virtualbox
+#  - vlc
+#  - xmind
+#  - xtrafinder

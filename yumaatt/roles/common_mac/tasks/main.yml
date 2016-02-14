@@ -1,0 +1,15 @@
+### user
+- name: add /usr/local/bin/zsh to /etc/shells
+  copy: >
+    src=shells
+    dest=/etc/shells
+    owner=root
+    group=wheel
+    mode=0644
+  become: yes
+
+- name: change default shell
+  command: chsh -s {{ item.shell }} {{ item.user }}
+  become: yes
+  changed_when: false
+  with_items: user_data

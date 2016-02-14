@@ -1,0 +1,7 @@
+#!/bin/sh
+cd "${0%/*}" && exec > .gitignore
+cat <<'EOF'
+### custom
+*/private_vars/*
+!.gitkeep
+EOF

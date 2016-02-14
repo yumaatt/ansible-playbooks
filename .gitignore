@@ -1,1 +1,3 @@
-private_vars
+### custom
+*/private_vars/*
+!.gitkeep

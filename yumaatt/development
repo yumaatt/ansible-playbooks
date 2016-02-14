@@ -1,14 +1,20 @@
-[ubuntu14]
+[test_ubuntu14]
 192.168.2.10
 
-[ubuntu14:vars]
+[test_ubuntu14:vars]
 ansible_ssh_user=docker
 
-[local]
+[vagrant]
+192.168.1.10
+
+[vagrant:vars]
+ansible_ssh_user=vagrant
+
+[mac]
 127.0.0.1 ansible_connection=local
 
-[local:vars]
-ansible_ssh_user=vagrant
+[mac:vars]
+ansible_ssh_user=yuma.takahashi
 
 [all:vars]
 stage=development

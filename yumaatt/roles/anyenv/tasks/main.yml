@@ -1,10 +1,27 @@
 - name: set fact
   set_fact:
     pyenv: "{{ pyenv + group_pyenv }}"
+  when: group_pyenv is defined
+
+- name: set fact
+  set_fact:
     rbenv: "{{ rbenv + group_rbenv }}"
+  when: group_rbenv is defined
+
+- name: set fact
+  set_fact:
     plenv: "{{ plenv + group_plenv }}"
+  when: group_plenv is defined
+
+- name: set fact
+  set_fact:
     ndenv: "{{ ndenv + group_ndenv }}"
+  when: group_ndenv is defined
+
+- name: set fact
+  set_fact:
     goenv: "{{ goenv + group_goenv }}"
+  when: group_goenv is defined
 
 - name: install anyenv
   git: repo=https://github.com/riywo/anyenv dest=~/.anyenv update=no
