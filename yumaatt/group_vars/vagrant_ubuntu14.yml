@@ -8,7 +8,8 @@ group_pyenv:
     python_versions:
       - 2.7.11
       - 3.3.3
-    python_version: 3.3.3
+      - 3.4.4
+    python_version: 3.4.4
 
 group_rbenv:
   - user: vagrant

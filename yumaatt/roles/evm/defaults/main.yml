@@ -7,3 +7,8 @@ evm:
     emacs_versions:
       - 24.4
     emacs_version: 24.4
+
+evm_shared:
+  emacs_versions:
+    - 24.4
+  emacs_version: 24.4

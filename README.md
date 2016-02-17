@@ -12,3 +12,10 @@ cd /path/to/ansible-playbooks/yumaatt
 ansible-playbook site.yml -i development -l test_ubuntu14 -C
 ansible-playbook site.yml -i development -l test_ubuntu14
 ```
+
+todo
+```
+vim ~/.gitconfig.local
+emacs --debug-init
+aws configure
+```

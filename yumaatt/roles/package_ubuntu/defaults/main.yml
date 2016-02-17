@@ -24,6 +24,8 @@ packages_ubuntu:
   - arping
   # for ansible-playbook
   - sshpass
+  # for make emacs haskel-mode magit
+  - install-info
   # other
   - git
   - exuberant-ctags
@@ -37,3 +39,4 @@ packages_ubuntu:
   - gcc
   - nginx
   - stone
+  - software-properties-common

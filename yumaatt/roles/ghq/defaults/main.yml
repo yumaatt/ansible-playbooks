@@ -2,16 +2,10 @@ ghq_repos:
   - user: infra
     repos:
       - user: yumaatt
-        repo: hello_app
-      - user: yumaatt
-        repo: testrepo
-      - user: yumaatt
         repo: dotfiles
   - user: app
     repos:
       - user: yumaatt
         repo: hello_app
-      - user: yumaatt
-        repo: testrepo
       - user: yumaatt
         repo: dotfiles

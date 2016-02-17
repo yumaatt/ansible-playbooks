@@ -23,23 +23,21 @@ pyenv:
   - user: infra
     python_versions:
       - 2.7.11
-      - 3.3.3
-    python_version: 3.3.3
+      - 3.4.4
+    python_version: 3.4.4
   - user: app
     python_versions:
       - 2.7.11
-      - 3.3.3
-    python_version: 3.3.3
+      - 3.4.4
+    python_version: 3.4.4
 
 rbenv:
   - user: infra
     ruby_versions:
-      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
   - user: app
     ruby_versions:
-      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
 

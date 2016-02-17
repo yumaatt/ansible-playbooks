@@ -1,0 +1,5 @@
+- name: install awscli
+  pip: name=awscli chdir=~/ executable=~/.anyenv/envs/pyenv/shims/pip
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data

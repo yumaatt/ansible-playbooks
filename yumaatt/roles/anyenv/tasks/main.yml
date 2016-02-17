@@ -194,3 +194,9 @@
   become: yes
   become_user: "{{ item.user }}"
   with_items: user_data
+
+- name: upgrade pip
+  pip: name=pip chdir=~/ executable=~/.anyenv/envs/pyenv/shims/pip state=latest
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: user_data

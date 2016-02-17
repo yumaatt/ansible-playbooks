@@ -13,6 +13,7 @@
     - anyenv
     - ghq
     - evm
+    - aws
     - ntp
 
 - hosts: vagrant_ubuntu14

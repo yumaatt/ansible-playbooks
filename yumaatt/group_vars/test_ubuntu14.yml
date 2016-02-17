@@ -7,8 +7,8 @@ group_pyenv:
   - user: docker
     python_versions:
       - 2.7.11
-      - 3.3.3
-    python_version: 3.3.3
+      - 3.4.4
+    python_version: 3.4.4
 
 group_rbenv:
   - user: docker
@@ -38,10 +38,6 @@ group_goenv:
 group_ghq_repos:
   - user: docker
     repos:
-      - user: yumaatt
-        repo: hello_app
-      - user: yumaatt
-        repo: testrepo
       - user: jpetazzo
         repo: pipework
 
