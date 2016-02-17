@@ -34,10 +34,12 @@ pyenv:
 rbenv:
   - user: infra
     ruby_versions:
+      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
   - user: app
     ruby_versions:
+      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
 
