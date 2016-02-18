@@ -1,9 +1,13 @@
 - hosts:
-    - vagrant_ubuntu14
-    - test_ubuntu14
+    - admin-development-vagrant_ubuntu14
+    - test
   vars_files:
-    - private_vars/{{stage}}.yml
-    - group_vars/{{stage}}.yml
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
     - package_ubuntu
     - common
@@ -16,17 +20,27 @@
     - aws
     - ntp
 
-- hosts: vagrant_ubuntu14
+- hosts:
+    - admin-development-vagrant_ubuntu14
   vars_files:
-    - private_vars/{{stage}}.yml
-    - group_vars/{{stage}}.yml
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
     - docker
 
-- hosts: mac
+- hosts:
+    - admin-development-mac
   vars_files:
-    - private_vars/{{stage}}.yml
-    - group_vars/{{stage}}.yml
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
     - homebrew
     - common_mac

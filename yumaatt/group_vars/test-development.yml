@@ -38,8 +38,8 @@ group_goenv:
 group_ghq_repos:
   - user: docker
     repos:
-      - user: jpetazzo
-        repo: pipework
+      - user: yumaatt
+        repo: dotfiles
 
 group_evm:
   - user: docker
