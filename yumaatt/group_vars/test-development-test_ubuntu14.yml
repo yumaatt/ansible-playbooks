@@ -1,0 +1,4 @@
+group_user_data:
+  - user: docker
+    #uid: 1000
+    shell: /usr/bin/zsh

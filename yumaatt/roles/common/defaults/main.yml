@@ -1,9 +1,9 @@
 system_timezone: Asia/Tokyo
 
 user_data:
-  - user: 'infra'
-    uid: '2000'
-    shell: '/usr/bin/zsh'
-  - user: 'app'
-    uid: '2001'
-    shell: '/usr/bin/zsh'
+  - user: infra
+    uid: 2000
+    shell: /usr/bin/zsh
+  - user: app
+    uid: 2001
+    shell: /usr/bin/zsh

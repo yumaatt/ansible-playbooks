@@ -1,8 +1,3 @@
-group_user_data:
-  - user: docker
-    #uid: 1000
-    shell: /usr/bin/zsh
-
 group_pyenv:
   - user: docker
     python_versions:

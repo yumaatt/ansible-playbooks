@@ -1,3 +1,5 @@
-- name: ntpd-restart
+- name: ntpd_restart_Debian
   service: name=ntp state=restarted
 
+- name: ntpd_restart_RedHat
+  service: name=ntpd state=restarted

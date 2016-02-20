@@ -9,16 +9,28 @@
     - group_vars/{{app}}-{{stage}}.yml
     - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
-    - package_ubuntu
+    - package
     - common
     - dotfiles
     - git
     - peco
     - anyenv
     - ghq
-    - evm
     - aws
-    - ntp
+
+- hosts:
+    - admin-development-vagrant_ubuntu14
+    - test-development-test_ubuntu14
+  vars_files:
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
+  roles:
+    # we need autoconf 2.65 to build emacs24.4, but centos6 cannot install autoconf 2.65
+    - evm
 
 - hosts:
     - admin-development-vagrant_ubuntu14
@@ -31,6 +43,7 @@
     - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
     - docker
+    - ntp
 
 - hosts:
     - admin-development-mac

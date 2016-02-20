@@ -172,10 +172,15 @@
   become_user: "{{ item.user }}"
   with_items: goenv
 
+- name: check gem
+  stat: path=~/.anyenv/envs/rbenv/shims/gem
+  register: check_gem
+
 - name: install bundler
   gem: name=bundler executable=~/.anyenv/envs/rbenv/shims/gem user_install=no
   become: yes
   become_user: "{{ item.user }}"
+  when: check_gem.stat.exists
   with_items: user_data
 
 - name: install cpanm

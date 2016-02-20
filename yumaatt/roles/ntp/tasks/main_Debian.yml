@@ -1,0 +1,13 @@
+- name: ntp start
+  service: name=ntp state=started enabled=yes
+  become: yes
+
+- name: remove /var/lib/ntp/ntp.conf.dhcp
+  file: path=/var/lib/ntp/ntp.conf.dhcp state=absent
+  become: yes
+  notify: ntpd_restart_Debian
+
+- name: upload ntp.conf
+  template: src=ntp.conf_Debian.j2 dest=/etc/ntp.conf
+  become: yes
+  notify: ntpd_restart_Debian
