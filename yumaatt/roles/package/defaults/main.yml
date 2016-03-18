@@ -30,6 +30,7 @@ packages_Debian:
   - { name: libgtk2.0-dev, state: latest }
   - { name: libncurses-dev, state: latest }
   - { name: make, state: latest }
+  - { name: nkf, state: latest }
   - { name: ntp, state: latest }
   - { name: ntpdate, state: latest }
   - { name: nginx, state: latest }
@@ -39,6 +40,7 @@ packages_Debian:
   - { name: software-properties-common, state: latest }
   - { name: texinfo, state: latest }
   - { name: tmux, state: latest }
+  - { name: unzip, state: latest }
   - { name: vim, state: latest }
   - { name: zlib1g-dev, state: latest }
   - { name: zsh, state: latest }
