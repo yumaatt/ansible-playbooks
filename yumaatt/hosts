@@ -1,3 +1,29 @@
+# phoply
+[phoply-development-phoply_dev1]
+192.168.2.12
+
+[phoply-development-phoply_dev1:vars]
+group=phoply_dev1
+
+[phoply-development:children]
+phoply-development-phoply_dev1
+
+[phoply-staging:children]
+
+[phoply-production:children]
+
+[phoply-development:vars]
+stage=development
+ansible_user=docker
+
+[phoply:children]
+phoply-development
+phoply-staging
+phoply-production
+
+[phoply:vars]
+app=phoply
+
 # test
 [test-development-test_ubuntu14]
 192.168.2.10

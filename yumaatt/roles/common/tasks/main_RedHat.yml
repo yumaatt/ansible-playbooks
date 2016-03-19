@@ -27,14 +27,20 @@
   become: yes
   when: item.uid is defined
   with_items: user_data
+  tags:
+    - create_user
 
 - name: set user password
   user: name={{ item.user }} password={{ item.password}}
   become: yes
   with_items: user_passwords
+  tags:
+    - create_user
 
 - name: change default shell
   user: name={{ item.user }} shell={{ item.shell }}
   become: yes
   when: item.uid is undefined
   with_items: user_data
+  tags:
+    - create_user

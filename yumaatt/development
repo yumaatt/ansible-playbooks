@@ -1,20 +1,11 @@
-[test_ubuntu14]
-192.168.2.10
+[web-servers]
+www1.example.com
+www2.example.com
 
-[test_ubuntu14:vars]
-ansible_ssh_user=docker
+[db-servers]
+db1.example.com
+db2.example.com
 
-[vagrant_ubuntu14]
-192.168.1.10
-
-[vagrant_ubuntu14:vars]
-ansible_ssh_user=vagrant
-
-[mac]
-127.0.0.1 ansible_connection=local
-
-[mac:vars]
-ansible_ssh_user=yuma.takahashi
-
-[all:vars]
-stage=development
+[production:children]
+web-servers
+db-servers

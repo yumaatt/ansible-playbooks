@@ -1,5 +1,10 @@
+- name: check pip is installed
+  stat: path=~/.anyenv/envs/pyenv/shims/pip
+  register: is_pip_installed
+
 - name: install awscli
   pip: name=awscli chdir=~/ executable=~/.anyenv/envs/pyenv/shims/pip
   become: yes
   become_user: "{{ item.user }}"
   with_items: user_data
+  when: is_pip_installed.stat.exists
