@@ -1,7 +1,7 @@
 - name: add-apt-repository
   apt_repository: repo={{ item }}
   become: yes
-  with_items: apt_repository_Debian
+  with_items: "{{ apt_repository_Debian }}"
 
 - name: apt-get update
   apt: update_cache=yes
@@ -10,4 +10,4 @@
 - name: apt-get install packages
   apt: pkg={{ item.name }} state={{ item.state }}
   become: yes
-  with_items: packages_Debian
+  with_items: "{{ packages_Debian }}"

@@ -27,35 +27,35 @@
   git: repo=https://github.com/riywo/anyenv dest=~/.anyenv update=no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: anyenv plugins directory
   file: path=~/.anyenv/plugins state=directory mode=0775
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: anyenv plugins
   git: repo=https://github.com/znz/{{ item.1 }}.git dest=~/.anyenv/plugins/{{ item.1 }} update=no
   become: yes
   become_user: "{{ item.0.user }}"
   with_nested:
-    - user_data
-    - anyenv_plugins
+    - "{{ user_data }}"
+    - "{{ anyenv_plugins }}"
 
 - name: anyenv envs directory
   file: path=~/.anyenv/envs state=directory mode=0775
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: anyenv install envs
   command: creates=~/.anyenv/envs/{{ item.1 }} ~/.anyenv/bin/anyenv install {{ item.1 }}
   become: yes
   become_user: "{{ item.0.user }}"
   with_nested:
-    - user_data
-    - anyenv
+    - "{{ user_data }}"
+    - "{{ anyenv }}"
 
 - name: install python
   shell: |
@@ -67,7 +67,7 @@
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - pyenv
+    - "{{ pyenv }}"
     - python_versions
 
 - name: set python version
@@ -78,7 +78,7 @@
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: pyenv
+  with_items: "{{ pyenv }}"
 
 - name: install ruby
   shell: |
@@ -90,7 +90,7 @@
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - rbenv
+    - "{{ rbenv }}"
     - ruby_versions
 
 - name: set ruby version
@@ -101,7 +101,7 @@
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: rbenv
+  with_items: "{{ rbenv }}"
 
 - name: install perl
   shell: |
@@ -113,7 +113,7 @@
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - plenv
+    - "{{ plenv }}"
     - perl_versions
 
 - name: set perl version
@@ -124,7 +124,7 @@
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: plenv
+  with_items: "{{ plenv }}"
 
 - name: install node
   shell: |
@@ -136,7 +136,7 @@
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - ndenv
+    - "{{ ndenv }}"
     - node_versions
 
 - name: set node version
@@ -147,7 +147,7 @@
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: ndenv
+  with_items: "{{ ndenv }}"
 
 - name: install go
   shell: |
@@ -159,7 +159,7 @@
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - goenv
+    - "{{ goenv }}"
     - go_versions
 
 - name: set go version
@@ -170,7 +170,7 @@
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: goenv
+  with_items: "{{ goenv }}"
 
 - name: check gem
   stat: path=~/.anyenv/envs/rbenv/shims/gem
@@ -182,7 +182,7 @@
   become_user: "{{ item.0.user }}"
   when: check_gem.stat.exists
   with_subelements:
-    - gems
+    - "{{ gems }}"
     - gem_list
 
 - name: install cpanm
@@ -194,13 +194,13 @@
     creates=~/.anyenv/envs/plenv/shims/cpanm
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: cpanm Carton
   command: creates=~/.anyenv/envs/plenv/shims/carton ~/.anyenv/envs/plenv/shims/cpanm Carton
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: upgrade pip
   shell: |
@@ -210,4 +210,4 @@
   changed_when: ‘”Requirement already up-to-date” not in result.stdout’
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"

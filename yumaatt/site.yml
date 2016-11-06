@@ -49,6 +49,7 @@
     - group_vars/{{app}}-{{stage}}.yml
     - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
+
     # we need autoconf 2.65 to build emacs24.4, but centos6 cannot install autoconf 2.65
     - evm
 

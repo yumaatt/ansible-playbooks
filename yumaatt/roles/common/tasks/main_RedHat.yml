@@ -2,7 +2,7 @@
 - name: check clock
   command: cat /etc/sysconfig/clock
   changed_when: no
-  always_run: yes
+  check_mode: no
   register: check_clock
 
 - name: set clock
@@ -26,14 +26,14 @@
   user: name={{ item.user }} uid={{ item.uid }} shell={{ item.shell }}
   become: yes
   when: item.uid is defined
-  with_items: user_data
+  with_items: "{{ user_data }}"
   tags:
     - create_user
 
 - name: set user password
   user: name={{ item.user }} password={{ item.password}}
   become: yes
-  with_items: user_passwords
+  with_items: "{{ user_passwords }}"
   tags:
     - create_user
 
@@ -41,6 +41,6 @@
   user: name={{ item.user }} shell={{ item.shell }}
   become: yes
   when: item.uid is undefined
-  with_items: user_data
+  with_items: "{{ user_data }}"
   tags:
     - create_user

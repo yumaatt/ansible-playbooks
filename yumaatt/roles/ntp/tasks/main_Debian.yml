@@ -3,7 +3,7 @@
   register: ntp_is_installed
   failed_when: ntp_is_installed.rc > 1
   changed_when: no
-  always_run: yes
+  check_mode: no
 
 - name: ntp start
   service: name=ntp state=started enabled=yes

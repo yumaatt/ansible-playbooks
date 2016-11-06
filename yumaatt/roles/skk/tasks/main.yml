@@ -16,7 +16,7 @@
   shell: ps aux | grep google-ime-skk | grep -v grep
   failed_when: "'command not found' in process_google_ime_skk_status.stderr"
   changed_when: no
-  always_run: yes
+  check_mode: no
   register: process_google_ime_skk_status
 
 - name: start google-ime-skk

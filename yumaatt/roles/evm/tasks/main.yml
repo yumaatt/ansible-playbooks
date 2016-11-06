@@ -6,14 +6,14 @@
   git: repo=https://github.com/rejeep/evm.git dest=~/.evm update=no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: evm
+  with_items: "{{ evm }}"
 
 ### install evm at user directory
 #- name: evm directory
 #  file: path=~/.evm/evm state=directory mode=0775
 #  become: yes
 #  become_user: "{{ item.user }}"
-#  with_items: evm
+#  with_items: "{{ evm }}"
 #
 #- name: evm config path
 #  shell: |
@@ -24,7 +24,7 @@
 #  changed_when: false
 #  become: yes
 #  become_user: "{{ item.user }}"
-#  with_items: evm
+#  with_items: "{{ evm }}"
 #
 #- name: install emacs
 #  shell: |
@@ -36,8 +36,8 @@
 #  become: yes
 #  become_user: "{{ item.0.user }}"
 #  with_subelements:
-#    - evm
-#    - emacs_versions
+#    - "{{ evm }}"
+#    - "{{ emacs_versions }}"
 #
 #- name: set emacs version
 #  shell: |
@@ -47,7 +47,7 @@
 #  changed_when: false
 #  become: yes
 #  become_user: "{{ item.user }}"
-#  with_items: evm
+#  with_items: "{{ evm }}"
 
 ### share evm with all users
 - name: evm directory
@@ -61,7 +61,7 @@
     executable=/bin/bash
     creates=/usr/local/evm/emacs-{{ item }}/bin/emacs
   changed_when: false
-  with_items: evm_shared.emacs_versions
+  with_items: "{{ evm_shared.emacs_versions }}"
 
 - name: set emacs version
   shell: |
@@ -71,4 +71,4 @@
   changed_when: false
   become: yes
   become_user: "{{ item.user }}"
-  with_items: evm
+  with_items: "{{ evm }}"

@@ -9,12 +9,12 @@
     GOPATH: /home/{{ item.user }}/.go
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: ghq get repos
   command: creates=~/.ghq/github.com/{{ item.1.user }}/{{ item.1.repo }} ~/.go/bin/ghq get https://github.com/{{ item.1.user }}/{{ item.1.repo }}.git
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - ghq_repos
+    - "{{ ghq_repos }}"
     - repos

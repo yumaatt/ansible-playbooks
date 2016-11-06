@@ -2,11 +2,11 @@
   git: repo=https://github.com/yumaatt/dotfiles.git dest=~/.ghq/github.com/yumaatt/dotfiles update=no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
 
 - name: setup dotfiles
   command: ~/.ghq/github.com/yumaatt/dotfiles/setup.sh
   changed_when: false
   become: yes
   become_user: "{{ item.user }}"
-  with_items: user_data
+  with_items: "{{ user_data }}"
