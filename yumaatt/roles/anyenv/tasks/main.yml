@@ -211,3 +211,16 @@
   become: yes
   become_user: "{{ item.user }}"
   with_items: "{{ user_data }}"
+
+- name: check pip
+  stat: path=~/.anyenv/envs/pyenv/shims/pip
+  register: check_pip
+
+- name: install python packages
+  pip: name="{{ item.1 }}" executable=~/.anyenv/envs/pyenv/shims/pip chdir=~/.ghq/github.com/yumaatt/ansible-playbooks
+  become: yes
+  become_user: "{{ item.0.user }}"
+  when: check_pip.stat.exists
+  with_subelements:
+    - "{{ python_packages }}"
+    - package_list

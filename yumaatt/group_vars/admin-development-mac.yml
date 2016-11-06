@@ -48,6 +48,12 @@ gems:
       - google-ime-skk
 
 # override
+python_packages:
+  - user: yuma.takahashi
+    package_list:
+      - passlib
+
+# override
 ghq_repos:
   - user: yuma.takahashi
     repos:
