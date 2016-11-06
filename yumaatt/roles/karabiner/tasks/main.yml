@@ -1,0 +1,3 @@
+### karabiner
+- name: make symbolic link karabiner private.xml
+  file: src=~/.dotfiles/karabiner/private.xml dest='~/Library/Application Support/Karabiner/private.xml' state=link

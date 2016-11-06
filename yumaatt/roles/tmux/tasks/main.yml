@@ -1,0 +1,15 @@
+- name: check tmux
+  stat: path=~/.tmux
+  register: check_tmux
+
+- name: check tpm
+  stat: path=~/.tmux/plugins/tpm
+  register: check_tpm
+
+- name: "install tpm"
+  git: repo=https://github.com/tmux-plugins/tpm
+       dest=~/.tmux/plugins/tpm accept_hostkey=yes
+  become: yes
+  become_user: "{{ item.user }}"
+  when: check_tmux.stat.exists and not check_tpm.stat.exists
+  with_items: user_data

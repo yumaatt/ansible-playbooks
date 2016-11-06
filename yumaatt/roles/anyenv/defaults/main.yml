@@ -72,3 +72,11 @@ goenv:
     go_versions:
       - 1.5
     go_version: 1.5
+
+gems:
+  - user: infra
+    gem_list:
+      - bundler
+  - user: app
+    gem_list:
+      - bundler

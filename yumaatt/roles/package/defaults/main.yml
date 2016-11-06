@@ -24,11 +24,11 @@ packages_Debian:
   - { name: libx11-dev, state: latest }
   - { name: libxpm-dev, state: latest }
   - { name: libjpeg-dev, state: latest }
-  - { name: libpng-dev, state: latest }
+  - { name: libpng12-dev, state: latest }
   - { name: libgif-dev, state: latest }
-  - { name: libtiff-dev, state: latest }
+  - { name: libtiff5-dev, state: latest }
   - { name: libgtk2.0-dev, state: latest }
-  - { name: libncurses-dev, state: latest }
+  - { name: libncurses5-dev, state: latest }
   - { name: make, state: latest }
   - { name: nkf, state: latest }
   - { name: ntp, state: latest }

@@ -1,13 +1,23 @@
+- name: check if ntp is installed
+  command: dpkg-query -l ntp
+  register: ntp_is_installed
+  failed_when: ntp_is_installed.rc > 1
+  changed_when: no
+  always_run: yes
+
 - name: ntp start
   service: name=ntp state=started enabled=yes
   become: yes
+  when: ntp_is_installed.rc == 0
 
 - name: remove /var/lib/ntp/ntp.conf.dhcp
   file: path=/var/lib/ntp/ntp.conf.dhcp state=absent
   become: yes
+  when: ntp_is_installed.rc == 0
   notify: ntpd_restart_Debian
 
 - name: upload ntp.conf
   template: src=ntp.conf_Debian.j2 dest=/etc/ntp.conf
   become: yes
+  when: ntp_is_installed.rc == 0
   notify: ntpd_restart_Debian

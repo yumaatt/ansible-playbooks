@@ -176,12 +176,14 @@
   stat: path=~/.anyenv/envs/rbenv/shims/gem
   register: check_gem
 
-- name: install bundler
-  gem: name=bundler executable=~/.anyenv/envs/rbenv/shims/gem user_install=no
+- name: install gems
+  gem: name="{{ item.1 }}" executable=~/.anyenv/envs/rbenv/shims/gem user_install=no
   become: yes
-  become_user: "{{ item.user }}"
+  become_user: "{{ item.0.user }}"
   when: check_gem.stat.exists
-  with_items: user_data
+  with_subelements:
+    - gems
+    - gem_list
 
 - name: install cpanm
   shell: |
@@ -201,7 +203,11 @@
   with_items: user_data
 
 - name: upgrade pip
-  pip: name=pip chdir=~/ executable=~/.anyenv/envs/pyenv/shims/pip state=latest
+  shell: |
+    cd ~/
+    ~/.anyenv/envs/pyenv/shims/pip install –upgrade pip
+  register: result
+  changed_when: ‘”Requirement already up-to-date” not in result.stdout’
   become: yes
   become_user: "{{ item.user }}"
   with_items: user_data

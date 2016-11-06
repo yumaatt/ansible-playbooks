@@ -1,4 +1,21 @@
 - hosts:
+    - isucon
+  vars_files:
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
+  roles:
+    - package
+    - common
+    - dotfiles
+    - peco
+    - tmux
+    - ntp
+
+- hosts:
     - admin-development-vagrant_ubuntu14
     - test
     - phoply
@@ -18,6 +35,7 @@
     - anyenv
     - ghq
     - aws
+    - tmux
 
 - hosts:
     - admin-development-vagrant_ubuntu14
@@ -62,3 +80,6 @@
     - dotfiles
     - anyenv
     - ghq
+    - skk
+    - karabiner
+    - tmux

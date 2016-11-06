@@ -39,6 +39,13 @@ goenv:
     go_versions:
       - 1.5
     go_version: 1.5
+    
+# override
+gems:
+  - user: yuma.takahashi
+    gem_list:
+      - bundler
+      - google-ime-skk
 
 # override
 ghq_repos:
@@ -54,3 +61,5 @@ ghq_repos:
         repo: dotfiles
       - user: yumaatt
         repo: ansible-playbooks
+      - user: yumaatt
+        repo: blog

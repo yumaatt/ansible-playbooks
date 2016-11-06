@@ -1,3 +1,29 @@
+# isucon
+[isucon-development-isucon_ubuntu14]
+192.168.33.10
+
+[isucon-development-isucon_ubuntu14:vars]
+group=isucon_ubuntu14
+
+[isucon-development:children]
+isucon-development-isucon_ubuntu14
+
+[isucon-staging:children]
+
+[isucon-production:children]
+
+[isucon-development:vars]
+stage=development
+ansible_user=isucon
+
+[isucon:children]
+isucon-development
+isucon-staging
+isucon-production
+
+[isucon:vars]
+app=isucon
+
 # phoply
 [phoply-development-phoply_dev1]
 192.168.2.12

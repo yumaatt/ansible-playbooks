@@ -1,0 +1,27 @@
+### AquaSKK
+- name: make symbolic link skk symbol.rule
+  file: src=~/.dotfiles/skk/symbol.rule dest='~/Library/Application Support/AquaSKK/symbol.rule' state=link
+
+### google-ime-skk
+- name: cp google-ime-skk.plist to ~/Library/LaunchAgents/
+  copy: >
+    src=/Users/yuma.takahashi/.dotfiles/skk/google-ime-skk.plist
+    dest=/Users/yuma.takahashi/Library/LaunchAgents/google-ime-skk.plist
+    owner=root
+    group=wheel
+    mode=0644
+  become: yes
+
+- name: check if google-ime-skk is running
+  shell: ps aux | grep google-ime-skk | grep -v grep
+  failed_when: "'command not found' in process_google_ime_skk_status.stderr"
+  changed_when: no
+  always_run: yes
+  register: process_google_ime_skk_status
+
+- name: start google-ime-skk
+  shell: |
+      launchctl load /Users/yuma.takahashi/Library/LaunchAgents/google-ime-skk.plist
+      launchctl start google-ime-skk
+  when: process_google_ime_skk_status.rc != 0
+  become: yes
