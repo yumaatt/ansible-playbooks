@@ -34,6 +34,7 @@ packages_Debian:
   - { name: ntp, state: latest }
   - { name: ntpdate, state: latest }
   - { name: nginx, state: latest }
+  - { name: redis-server, state: latest }
   - { name: silversearcher-ag, state: latest }
   - { name: sshpass, state: latest }
   - { name: stone, state: latest }
