@@ -9,12 +9,14 @@ packages_Debian:
   - { name: bridge-utils, state: latest }
   - { name: build-essential, state: latest }
   - { name: curl, state: latest }
+  - { name: dstat, state: latest }
   - { name: emacs, state: latest }
   - { name: exuberant-ctags, state: latest }
   - { name: g++, state: latest }
   - { name: gcc, state: latest }
   - { name: git, state: latest }
   - { name: install-info, state: latest }
+  - { name: jq, state: latest }
   - { name: libsqlite3-dev, state: latest }
   - { name: libffi-dev, state: latest }
   - { name: libssl-dev, state: latest }
