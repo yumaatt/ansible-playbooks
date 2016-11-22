@@ -1,0 +1,3 @@
+### vimperator
+- name: make symbolic link firefox .vimperatorrc
+  file: src=~/.dotfiles/.vimperatorrc dest='~/.vimperatorrc' state=link
