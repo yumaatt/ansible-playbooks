@@ -1,0 +1,15 @@
+### percona-toolkit
+- name: check percona-toolkit
+  stat: path=/usr/local/src/percona-toolkit.deb
+  register: percona_toolkit_exists
+  
+- name: wget percona-toolkit.deb
+  command: >-
+    wget -O /usr/local/src/percona-toolkit.deb percona.com/get/percona-toolkit.deb
+  become: yes
+  when: percona_toolkit_exists.stat.md5 is not defined
+
+- name: install percona-toolkit.deb
+  apt:
+    deb: /usr/local/src/percona-toolkit.deb
+  become: yes
