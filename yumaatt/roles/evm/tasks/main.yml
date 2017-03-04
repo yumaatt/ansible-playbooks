@@ -1,7 +1,3 @@
-- name: set fact
-  set_fact:
-    evm: "{{ evm + group_evm }}"
-
 - name: install evm
   git: repo=https://github.com/rejeep/evm.git dest=~/.evm update=no
   become: yes

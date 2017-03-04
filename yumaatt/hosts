@@ -84,6 +84,15 @@ test-production
 app=test
 
 # admin
+[admin-development-ubuntu16]
+157.7.132.214
+
+[admin-development-ubuntu16:vars]
+group=ubuntu16
+ansible_user=ubuntu
+ansible_port=10022
+#ansible_python_interpreter=/usr/bin/python3
+
 [admin-development-vagrant_ubuntu14]
 192.168.1.10
 
@@ -100,6 +109,7 @@ ansible_user=yuma.takahashi
 ansible_connection=local
 
 [admin-development:children]
+admin-development-ubuntu16
 admin-development-vagrant_ubuntu14
 admin-development-mac
 

@@ -14,9 +14,11 @@
     - peco
     - tmux
     - ntp
+    - percona
 
 - hosts:
     - admin-development-vagrant_ubuntu14
+    - admin-development-ubuntu16
     - test
     - phoply
   vars_files:
@@ -49,12 +51,12 @@
     - group_vars/{{app}}-{{stage}}.yml
     - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
-
     # we need autoconf 2.65 to build emacs24.4, but centos6 cannot install autoconf 2.65
     - evm
 
 - hosts:
     - admin-development-vagrant_ubuntu14
+    - admin-development-ubuntu16
   vars_files:
     - private_vars/{{app}}.yml
     - private_vars/{{app}}-{{stage}}.yml
@@ -84,3 +86,4 @@
     - skk
     - karabiner
     - tmux
+    - firefox

@@ -1,5 +1,5 @@
 user_data:
- - user: vagrant
+ - user: ubuntu
    shell: /usr/bin/zsh
  - user: infra
    uid: 2000
@@ -9,7 +9,7 @@ user_data:
    shell: /usr/bin/zsh
 
 pyenv:
-  - user: vagrant
+  - user: ubuntu
     python_versions:
       - 2.7.11
       - 3.4.4
@@ -26,24 +26,21 @@ pyenv:
     python_version: 3.4.4
 
 rbenv:
-  - user: vagrant
+  - user: ubuntu
     ruby_versions:
-      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
   - user: infra
     ruby_versions:
-      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
   - user: app
     ruby_versions:
-      - 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
 
 plenv:
-  - user: vagrant
+  - user: ubuntu
     perl_versions:
       - 5.16.3
     perl_version: 5.16.3
@@ -57,7 +54,7 @@ plenv:
     perl_version: 5.16.3
 
 ndenv:
-  - user: vagrant
+  - user: ubuntu
     node_versions:
       - v0.10.25
     node_version: v0.10.25
@@ -71,7 +68,7 @@ ndenv:
     node_version: v0.10.25
 
 goenv:
-  - user: vagrant
+  - user: ubuntu
     go_versions:
       - 1.5
     go_version: 1.5
@@ -85,7 +82,7 @@ goenv:
     go_version: 1.5
 
 gems:
-  - user: vagrant
+  - user: ubuntu
     gem_list:
       - bundler
   - user: infra
@@ -96,9 +93,10 @@ gems:
       - bundler
 
 python_packages:
-  - user: vagrant
+  - user: ubuntu
     package_list:
       - ansible
+      - docker-compose
   - user: infra
     package_list:
       - ansible
@@ -107,7 +105,7 @@ python_packages:
       - ansible
 
 ghq_repos:
-  - user: vagrant
+  - user: ubuntu
     repos:
       - user: yumaatt
         repo: hello_app
@@ -132,21 +130,4 @@ ghq_repos:
       - user: yumaatt
         repo: dotfiles
 
-evm:
-  - user: vagrant
-    emacs_versions:
-      - 24.4
-    emacs_version: 24.4
-  - user: infra
-    emacs_versions:
-      - 24.4
-    emacs_version: 24.4
-  - user: app
-    emacs_versions:
-      - 24.4
-    emacs_version: 24.4
-
-evm_shared:
-  emacs_versions:
-    - 24.4
-  emacs_version: 24.4
+docker_repo: deb https://apt.dockerproject.org/repo ubuntu-xenial main

@@ -1,5 +1,7 @@
 - name: ntpd_restart_Debian
+  become: yes
   service: name=ntp state=restarted
 
 - name: ntpd_restart_RedHat
+  become: yes
   service: name=ntpd state=restarted

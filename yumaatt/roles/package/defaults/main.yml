@@ -6,8 +6,11 @@ packages_Debian:
   - { name: automake, state: latest }
   - { name: autogen, state: latest }
   - { name: arping, state: latest }
+  - { name: apt-transport-https, state: latest }
+  - { name: bc, state: latest }
   - { name: bridge-utils, state: latest }
   - { name: build-essential, state: latest }
+  - { name: ca-certificates, state: latest }
   - { name: curl, state: latest }
   - { name: dstat, state: latest }
   - { name: emacs, state: latest }
@@ -30,7 +33,6 @@ packages_Debian:
   - { name: libgif-dev, state: latest }
   - { name: libtiff5-dev, state: latest }
   - { name: libgtk2.0-dev, state: latest }
-  - { name: libncurses5-dev, state: latest }
   - { name: make, state: latest }
   - { name: nkf, state: latest }
   - { name: ntp, state: latest }

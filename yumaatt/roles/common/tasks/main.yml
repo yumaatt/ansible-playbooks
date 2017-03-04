@@ -1,13 +1,12 @@
-- name: set fact
-  set_fact:
-    user_data: "{{ user_data + group_user_data }}"
-  when: group_user_data is defined
-
 #- name: Add the OS specific varibles
 #  include_vars: "{{ ansible_os_family }}.yml"
 
 - include: main_Debian.yml
   when: "ansible_os_family == 'Debian'"
+  tags:
+    - base
 
 - include: main_RedHat.yml
   when: "ansible_os_family == 'RedHat'"
+  tags:
+    - base
