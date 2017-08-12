@@ -27,6 +27,7 @@
   user: name={{ item.user }} password={{ item.password | password_hash('sha512') }}
   become: yes
   changed_when: no
+  when: item.user is defined
   with_items: "{{ user_passwords }}"
 
 - name: change default shell

@@ -1,0 +1,9 @@
+Host test_ubuntu16
+    HostName 192.168.2.13
+    User docker
+    ProxyCommand ssh -W %h:%p -p 10022 ubuntu@vps1
+
+Host phoply_dev1
+    HostName 192.168.2.12
+    User docker
+    ProxyCommand ssh -W %h:%p -p 10022 ubuntu@vps1

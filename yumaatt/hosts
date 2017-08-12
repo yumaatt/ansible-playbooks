@@ -24,9 +24,10 @@ isucon-production
 [isucon:vars]
 app=isucon
 
+
 # phoply
 [phoply-development-phoply_dev1]
-192.168.2.12
+phoply_dev1
 
 [phoply-development-phoply_dev1:vars]
 group=phoply_dev1
@@ -50,12 +51,19 @@ phoply-production
 [phoply:vars]
 app=phoply
 
+
 # test
 [test-development-test_ubuntu14]
 192.168.2.10
 
 [test-development-test_ubuntu14:vars]
 group=test_ubuntu14
+
+[test-development-test_ubuntu16]
+test_ubuntu16
+
+[test-development-test_ubuntu16:vars]
+group=test_ubuntu16
 
 [test-development-test_centos6]
 192.168.2.11
@@ -65,6 +73,7 @@ group=test_centos6
 
 [test-development:children]
 test-development-test_ubuntu14
+test-development-test_ubuntu16
 test-development-test_centos6
 
 [test-staging:children]
@@ -82,6 +91,7 @@ test-production
 
 [test:vars]
 app=test
+
 
 # admin
 [admin-development-ubuntu16]

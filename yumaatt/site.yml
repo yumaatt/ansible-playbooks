@@ -42,7 +42,6 @@
 - hosts:
     - admin-development-vagrant_ubuntu14
     - test-development-test_ubuntu14
-    - phoply-development-phoply_dev1
   vars_files:
     - private_vars/{{app}}.yml
     - private_vars/{{app}}-{{stage}}.yml

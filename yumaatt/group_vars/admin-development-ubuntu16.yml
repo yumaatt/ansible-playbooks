@@ -13,7 +13,7 @@ pyenv:
     python_versions:
       - 2.7.11
       - 3.4.4
-    python_version: 3.4.4
+    python_version: 2.7.11
   - user: infra
     python_versions:
       - 2.7.11
