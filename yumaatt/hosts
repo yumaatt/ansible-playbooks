@@ -1,28 +1,28 @@
 # isucon
-[isucon-development-isucon_ubuntu14]
-192.168.33.10
+[isucon5-development-isucon_ubuntu15]
+192.168.2.15
 
-[isucon-development-isucon_ubuntu14:vars]
-group=isucon_ubuntu14
+[isucon5-development-isucon_ubuntu15:vars]
+group=isucon_ubuntu15
 
-[isucon-development:children]
-isucon-development-isucon_ubuntu14
+[isucon5-development:children]
+isucon5-development-isucon_ubuntu15
 
-[isucon-staging:children]
+[isucon5-staging:children]
 
-[isucon-production:children]
+[isucon5-production:children]
 
-[isucon-development:vars]
+[isucon5-development:vars]
 stage=development
 ansible_user=isucon
 
-[isucon:children]
-isucon-development
-isucon-staging
-isucon-production
+[isucon5:children]
+isucon5-development
+isucon5-staging
+isucon5-production
 
-[isucon:vars]
-app=isucon
+[isucon5:vars]
+app=isucon5
 
 
 # phoply

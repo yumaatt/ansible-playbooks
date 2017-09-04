@@ -1,0 +1,137 @@
+apt_repository_Debian:
+  - ppa:git-core/ppa
+
+packages_Debian:
+  #- { name: autoconf, state: latest }
+  #- { name: automake, state: latest }
+  #- { name: autogen, state: latest }
+  #- { name: arping, state: latest }
+  #- { name: apt-transport-https, state: latest }
+  #- { name: bc, state: latest }
+  #- { name: bridge-utils, state: latest }
+  #- { name: build-essential, state: latest }
+  #- { name: ca-certificates, state: latest }
+  - { name: curl, state: latest }
+  - { name: dstat, state: latest }
+  - { name: emacs, state: latest }
+  #- { name: exuberant-ctags, state: latest }
+  #- { name: g++, state: latest }
+  #- { name: gcc, state: latest }
+  - { name: git, state: latest }
+  #- { name: install-info, state: latest }
+  - { name: jq, state: latest }
+  #- { name: libsqlite3-dev, state: latest }
+  #- { name: libffi-dev, state: latest }
+  #- { name: libssl-dev, state: latest }
+  - { name: libreadline-dev, state: latest }
+  #- { name: libbz2-dev, state: latest }
+  #- { name: libsqlite3-dev, state: latest }
+  #- { name: libx11-dev, state: latest }
+  #- { name: libxpm-dev, state: latest }
+  #- { name: libjpeg-dev, state: latest }
+  #- { name: libpng12-dev, state: latest }
+  #- { name: libgif-dev, state: latest }
+  #- { name: libtiff5-dev, state: latest }
+  #- { name: libgtk2.0-dev, state: latest }
+  - { name: make, state: latest }
+  #- { name: nkf, state: latest }
+  - { name: ntp, state: latest }
+  - { name: ntpdate, state: latest }
+  - { name: nginx, state: latest }
+  - { name: percona-toolkit, state: latest }
+  - { name: redis-server, state: latest }
+  - { name: silversearcher-ag, state: latest }
+  #- { name: sshpass, state: latest }
+  #- { name: stone, state: latest }
+  #- { name: software-properties-common, state: latest }
+  - { name: texinfo, state: latest }
+  - { name: tmux, state: latest }
+  - { name: unzip, state: latest }
+  - { name: vim, state: latest }
+  #- { name: zlib1g-dev, state: latest }
+  - { name: zsh, state: latest }
+
+packages_rpm_RedHat:
+  - { name: 'http://swiftsignal.com/packages/centos/6/x86_64/the-silver-searcher-0.14-1.el6.x86_64.rpm', state: present }
+  - { name: 'http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm', state: present }
+
+packages_RedHat:
+  - { name: '@Development tools', state: latest }
+  - { name: ack, state: latest, enablerepo: epel }
+  - { name: atk-devel, state: latest }
+  - { name: autoconf, state: latest }
+  - { name: automake, state: latest }
+  - { name: bridge-utils, state: latest }
+  - { name: bzip2, state: latest }
+  - { name: bzip2-devel, state: latest }
+  - { name: cmake, state: latest }
+  - { name: coreutils, state: latest }
+  - { name: curl, state: latest }
+  - { name: ctags, state: latest }
+  - { name: ctags-etags, state: latest }
+  - { name: emacs, state: latest }
+  - { name: fish, state: latest, enablerepo: rpmforge }
+  - { name: git2u, state: latest, enablerepo: ius }
+  - { name: gcc, state: latest }
+  - { name: gcc-c++, state: latest }
+  - { name: gdbm-devel, state: latest }
+  - { name: gtk2-devel, state: latest }
+  - { name: glibc-headers, state: latest }
+  - { name: graphviz, state: latest }
+  - { name: graphviz-devel, state: latest }
+  - { name: giflib-devel, state: latest }
+  - { name: htop, state: latest, enablerepo: epel }
+  #- { name: iproute2, state: latest } # todo
+  - { name: kernel-devel, state: latest }
+  - { name: kernel-headers, state: latest }
+  - { name: libXt, state: latest }
+  - { name: libXt-devel, state: latest }
+  - { name: libbonobo, state: latest }
+  - { name: libbonobo-devel, state: latest }
+  - { name: libcurl-devel, state: latest }
+  - { name: libevent, state: latest }
+  - { name: libevent-devel, state: latest }
+  - { name: libffi-devel, state: latest }
+  - { name: libjpeg-devel, state: latest }
+  - { name: libtiff-devel, state: latest }
+  - { name: libxml2-devel, state: latest }
+  - { name: libXpm, state: latest }
+  - { name: libXpm-devel, state: latest }
+  - { name: libxslt, state: latest }
+  - { name: libxslt-devel, state: latest }
+  - { name: libyaml-devel, state: latest }
+  - { name: libzip, state: latest }
+  - { name: libzip-devel, state: latest }
+  - { name: lzma, state: latest }
+  - { name: make, state: latest }
+  - { name: mtr, state: latest }
+  - { name: ncurses, state: latest }
+  - { name: ncurses-devel, state: latest }
+  - { name: nmap, state: latest }
+  - { name: ntp, state: latest }
+  - { name: ntpdate, state: latest }
+  - { name: nginx, state: latest, enablerepo: nginx }
+  - { name: openssh, state: latest }
+  - { name: openssl, state: latest }
+  - { name: openssl-devel, state: latest }
+  - { name: patch, state: latest }
+  - { name: pkgconfig, state: latest }
+  - { name: readline, state: latest }
+  - { name: readline-devel, state: latest }
+  #- { name: stone, state: latest } # todo
+  - { name: sqlite, state: latest }
+  - { name: sqlite-devel, state: latest }
+  - { name: sshpass, state: latest, enablerepo: epel }
+  - { name: swig, state: latest }
+  - { name: tar, state: latest }
+  - { name: texinfo, state: latest }
+  - { name: tmux, state: latest, enablerepo: epel }
+  - { name: unzip, state: latest }
+  - { name: vnstat, state: latest, enablerepo: epel }
+  - { name: vim, state: latest }
+  - { name: wget, state: latest }
+  - { name: xz, state: latest }
+  - { name: xz-devel, state: latest }
+  - { name: zlib, state: latest }
+  - { name: zlib-devel, state: latest }
+  - { name: zsh, state: latest }

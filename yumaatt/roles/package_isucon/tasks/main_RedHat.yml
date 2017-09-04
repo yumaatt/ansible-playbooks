@@ -1,0 +1,46 @@
+- name: install EPEL/Remi/RPMforge
+  yum: name={{ item }}
+  become: yes
+  changed_when: no
+  with_items:
+    - http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+    - http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+    - http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+    - http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-14.ius.centos6.noarch.rpm
+
+- name: check EPEL/Remi/RPMforge are installed
+  stat: path=/etc/yum.repos.d/epel.repo
+  register: repo_installed
+
+- name: make EPEL/Remi/RPMforge disabled
+  replace: dest=/etc/yum.repos.d/{{ item }} regexp="enabled *= *1" replace="enabled=0"
+  become: yes
+  when: repo_installed.stat.exists
+  with_items:
+    - epel.repo
+    - rpmforge.repo
+    - remi.repo
+    - remi-safe.repo
+    - ius.repo
+
+- name: check git version
+  command: warn=no git --version
+  changed_when: no
+  check_mode: no
+  register: git_version
+
+- name: yum remove git
+  yum: name=git state=absent
+  become: yes
+  when: git_version.stdout.find('git version 1.') != -1
+
+- name: install rpm packages
+  yum: name={{ item.name }} state={{ item.state }}
+  become: yes
+  changed_when: no
+  with_items: "{{ packages_rpm_RedHat }}"
+
+- name: yum install packages
+  yum: name={{ item.name }} state={{ item.state }} enablerepo={{ item.enablerepo | default('base') }}
+  become: yes
+  with_items: "{{ packages_RedHat }}"
