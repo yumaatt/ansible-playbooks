@@ -35,9 +35,9 @@ packages_Debian:
   #- { name: libgtk2.0-dev, state: latest }
   - { name: make, state: latest }
   #- { name: nkf, state: latest }
-  - { name: ntp, state: latest }
-  - { name: ntpdate, state: latest }
-  - { name: nginx, state: latest }
+  #- { name: ntp, state: latest }
+  #- { name: ntpdate, state: latest }
+  #- { name: nginx, state: latest }
   - { name: percona-toolkit, state: latest }
   - { name: redis-server, state: latest }
   - { name: silversearcher-ag, state: latest }

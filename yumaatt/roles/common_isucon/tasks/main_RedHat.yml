@@ -1,0 +1,40 @@
+### timezone
+- name: check clock
+  command: cat /etc/sysconfig/clock
+  changed_when: no
+  check_mode: no
+  register: check_clock
+
+- name: set clock
+  copy: content=ZONE="{{ system_timezone }}"
+        dest=/etc/sysconfig/clock
+        owner=root
+        group=root
+        mode=0644
+  become: yes
+  when: check_clock.stdout.find('{{ system_timezone }}') == -1
+  notify:
+    - update_timezone_RedHat
+
+- name: set localtime
+  command: cp -p /usr/share/zoneinfo/{{ system_timezone }} /etc/localtime
+  become: yes
+  changed_when: no
+
+### user
+- name: create user
+  user: name={{ item.user }} uid={{ item.uid }} shell={{ item.shell }}
+  become: yes
+  when: item.uid is defined
+  with_items: "{{ user_data }}"
+
+- name: set user password
+  user: name={{ item.user }} password={{ item.password}}
+  become: yes
+  with_items: "{{ user_passwords }}"
+
+- name: change default shell
+  user: name={{ item.user }} shell={{ item.shell }}
+  become: yes
+  when: item.uid is undefined
+  with_items: "{{ user_data }}"

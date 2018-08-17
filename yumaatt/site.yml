@@ -9,7 +9,7 @@
     - group_vars/{{app}}-{{stage}}-{{group}}.yml
   roles:
     - package_isucon
-    - common
+    - common_isucon
     - dotfiles
     - peco
     - tmux
