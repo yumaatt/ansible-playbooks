@@ -1,4 +1,20 @@
 - hosts:
+    - isucon8
+  vars_files:
+    - private_vars/{{app}}.yml
+    - private_vars/{{app}}-{{stage}}.yml
+    - private_vars/{{app}}-{{stage}}-{{group}}.yml
+    - group_vars/{{app}}.yml
+    - group_vars/{{app}}-{{stage}}.yml
+    - group_vars/{{app}}-{{stage}}-{{group}}.yml
+  roles:
+    - package_isucon
+    - common_isucon
+    - dotfiles
+    - peco
+    - tmux
+
+- hosts:
     - isucon5
   vars_files:
     - private_vars/{{app}}.yml
@@ -13,8 +29,6 @@
     - dotfiles
     - peco
     - tmux
-    # if you use docker, comment out ntp
-    #- ntp
 
 - hosts:
     - admin-development-vagrant_ubuntu14

@@ -1,6 +1,58 @@
-# isucon
+# isucon8 centos7
+[isucon8-development-isucon_centos7]
+35.227.62.178
+
+[isucon8-development-isucon_centos7:vars]
+group=isucon_centos7
+
+[isucon8-development:children]
+isucon8-development-isucon_centos7
+
+[isucon8-staging:children]
+
+[isucon8-production:children]
+
+[isucon8-development:vars]
+stage=development
+ansible_user=isucon
+
+[isucon8:children]
+isucon8-development
+isucon8-staging
+isucon8-production
+
+[isucon8:vars]
+app=isucon8
+
+# isucon8 centos6
+[isucon8-development-isucon_centos6]
+35.227.62.178
+
+[isucon8-development-isucon_centos6:vars]
+group=isucon_centos6
+
+[isucon8-development:children]
+isucon8-development-isucon_centos6
+
+[isucon8-staging:children]
+
+[isucon8-production:children]
+
+[isucon8-development:vars]
+stage=development
+ansible_user=isucon
+
+[isucon8:children]
+isucon8-development
+isucon8-staging
+isucon8-production
+
+[isucon8:vars]
+app=isucon8
+
+# isucon5
 [isucon5-development-isucon_ubuntu15]
-192.168.2.15
+35.196.59.1
 
 [isucon5-development-isucon_ubuntu15:vars]
 group=isucon_ubuntu15
