@@ -37,9 +37,9 @@ ndenv:
 goenv:
   - user: yuma.takahashi
     go_versions:
-      - 1.5.4
-    go_version: 1.5.4
-    
+      - 1.9.2
+    go_version: 1.9.2
+
 # override
 gems:
   - user: yuma.takahashi

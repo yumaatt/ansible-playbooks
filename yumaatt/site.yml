@@ -97,6 +97,6 @@
     - anyenv
     - ghq
     - skk
-    - karabiner
+    - karabiner-elements
     - tmux
-    - firefox
+    #- firefox

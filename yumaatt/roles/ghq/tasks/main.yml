@@ -1,10 +1,14 @@
-#- name: install ghq
-#  command: creates=~/.go/bin/ghq ~/.anyenv/envs/goenv/shims/go get github.com/motemen/ghq
-#  environment:
-#    GOPATH: /Users/{{ item.user }}/.go
-#  become: yes
-#  become_user: "{{ item.user }}"
-#  with_items: "{{ user_data }}"
+- name: set ghq user root directory
+  set_fact:
+    user_root_directory: "{% if ansible_os_family == 'Darwin' %}Users{% else %}home{% endif %}"
+
+- name: install ghq
+  command: creates=~/.go/bin/ghq ~/.anyenv/envs/goenv/shims/go get github.com/motemen/ghq
+  environment:
+    GOPATH: /{{ user_root_directory }}/{{ item.user }}/.go
+  become: yes
+  become_user: "{{ item.user }}"
+  with_items: "{{ user_data }}"
 
 - name: ghq get repos
   command: creates=~/.ghq/github.com/{{ item.1.user }}/{{ item.1.repo }} ~/.go/bin/ghq get https://github.com/{{ item.1.user }}/{{ item.1.repo }}.git

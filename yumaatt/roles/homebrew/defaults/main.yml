@@ -7,7 +7,7 @@ homebrew_taps:
 
 homebrew_packages:
   - { name: ansible }
-  - { name: brew-cask }
+  #- { name: brew-cask }
   - { name: colordiff }
   - { name: xz }
   - { name: coreutils }
