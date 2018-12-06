@@ -1,0 +1,4 @@
+# override
+user_data:
+  - user: isucon
+    shell: /usr/bin/zsh

@@ -1,0 +1,7 @@
+- name: update_timezone_Debian
+  command: dpkg-reconfigure --frontend noninteractive tzdata
+  become: yes
+
+- name: update_timezone_RedHat
+  command: source /etc/sysconfig/clock
+  become: yes

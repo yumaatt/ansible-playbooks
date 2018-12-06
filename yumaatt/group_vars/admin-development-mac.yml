@@ -15,7 +15,7 @@ pyenv:
 rbenv:
   - user: yuma.takahashi
     ruby_versions:
-      - 2.2.0 # for evm
+      #- 2.2.0 # for evm
       - 2.2.4
     ruby_version: 2.2.4
 
@@ -37,8 +37,8 @@ ndenv:
 goenv:
   - user: yuma.takahashi
     go_versions:
-      - 1.5
-    go_version: 1.5
+      - 1.5.4
+    go_version: 1.5.4
     
 # override
 gems:
@@ -57,15 +57,15 @@ python_packages:
 ghq_repos:
   - user: yuma.takahashi
     repos:
-      - user: yumaatt
-        repo: hello_app
-      - user: yumaatt
-        repo: testrepo
+      #- user: yumaatt
+      #  repo: hello_app
+      #- user: yumaatt
+      #  repo: testrepo
       - user: yumaatt
         repo: mac
       - user: yumaatt
         repo: dotfiles
       - user: yumaatt
         repo: ansible-playbooks
-      - user: yumaatt
-        repo: blog
+      #- user: yumaatt
+      #  repo: blog

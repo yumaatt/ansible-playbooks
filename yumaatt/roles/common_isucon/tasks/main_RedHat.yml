@@ -1,0 +1,6 @@
+### user
+- name: change default shell
+  user: name={{ item.user }} shell={{ item.shell }}
+  become: yes
+  when: item.uid is undefined
+  with_items: "{{ user_data }}"

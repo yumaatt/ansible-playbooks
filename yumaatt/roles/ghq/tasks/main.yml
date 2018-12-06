@@ -1,10 +1,10 @@
-- name: install ghq
-  command: creates=~/.go/bin/ghq ~/.anyenv/envs/goenv/shims/go get github.com/motemen/ghq
-  environment:
-    GOPATH: /home/{{ item.user }}/.go
-  become: yes
-  become_user: "{{ item.user }}"
-  with_items: "{{ user_data }}"
+#- name: install ghq
+#  command: creates=~/.go/bin/ghq ~/.anyenv/envs/goenv/shims/go get github.com/motemen/ghq
+#  environment:
+#    GOPATH: /Users/{{ item.user }}/.go
+#  become: yes
+#  become_user: "{{ item.user }}"
+#  with_items: "{{ user_data }}"
 
 - name: ghq get repos
   command: creates=~/.ghq/github.com/{{ item.1.user }}/{{ item.1.repo }} ~/.go/bin/ghq get https://github.com/{{ item.1.user }}/{{ item.1.repo }}.git
