@@ -55,7 +55,7 @@ homebrew_packages:
   - { name: packer }
   - { name: socat }
   - { name: rlwrap }
-  - { name: phantomjs }
+  #- { name: phantomjs }
   - { name: autojump }
   - { name: source-highlight }
 #  - { name: evm }
