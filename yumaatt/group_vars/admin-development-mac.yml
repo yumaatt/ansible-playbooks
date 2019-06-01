@@ -16,8 +16,8 @@ rbenv:
   - user: yuma.takahashi
     ruby_versions:
       #- 2.2.0 # for evm
-      - 2.2.4
-    ruby_version: 2.2.4
+      - 2.3.0
+    ruby_version: 2.3.0
 
 # override
 plenv:
@@ -27,18 +27,18 @@ plenv:
     perl_version: 5.16.3
 
 # override
-ndenv:
+nodenv:
   - user: yuma.takahashi
     node_versions:
-      - v0.10.25
-    node_version: v0.10.25
+      - 0.10.25
+    node_version: 0.10.25
 
 # override
 goenv:
   - user: yuma.takahashi
     go_versions:
-      - 1.9.2
-    go_version: 1.9.2
+      - 1.12.5
+    go_version: 1.12.5
 
 # override
 gems:

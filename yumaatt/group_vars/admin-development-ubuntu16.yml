@@ -53,19 +53,19 @@ plenv:
       - 5.16.3
     perl_version: 5.16.3
 
-ndenv:
+nodenv:
   - user: ubuntu
     node_versions:
-      - v0.10.25
-    node_version: v0.10.25
+      - 0.10.25
+    node_version: 0.10.25
   - user: infra
     node_versions:
-      - v0.10.25
-    node_version: v0.10.25
+      - 0.10.25
+    node_version: 0.10.25
   - user: app
     node_versions:
-      - v0.10.25
-    node_version: v0.10.25
+      - 0.10.25
+    node_version: 0.10.25
 
 goenv:
   - user: ubuntu

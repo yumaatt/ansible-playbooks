@@ -104,25 +104,25 @@
 - name: install node
   shell: |
     eval "$(~/.anyenv/bin/anyenv init -)"
-    ~/.anyenv/envs/ndenv/bin/ndenv install {{ item.1 }}
-    ~/.anyenv/envs/ndenv/bin/ndenv rehash
+    ~/.anyenv/envs/nodenv/bin/nodenv install {{ item.1 }}
+    ~/.anyenv/envs/nodenv/bin/nodenv rehash
     executable=/bin/bash
-    creates=~/.anyenv/envs/ndenv/versions/{{ item.1 }}
+    creates=~/.anyenv/envs/nodenv/versions/{{ item.1 }}
   become: yes
   become_user: "{{ item.0.user }}"
   with_subelements:
-    - "{{ ndenv }}"
+    - "{{ nodenv }}"
     - node_versions
 
 - name: set node version
   shell: |
     eval "$(~/.anyenv/bin/anyenv init -)"
-    ~/.anyenv/envs/ndenv/bin/ndenv global {{ item.node_version }}
+    ~/.anyenv/envs/nodenv/bin/nodenv global {{ item.node_version }}
     executable=/bin/bash
   changed_when: no
   become: yes
   become_user: "{{ item.user }}"
-  with_items: "{{ ndenv }}"
+  with_items: "{{ nodenv }}"
 
 - name: install go
   shell: |
