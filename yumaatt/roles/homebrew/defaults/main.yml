@@ -58,6 +58,7 @@ homebrew_packages:
   #- { name: phantomjs }
   - { name: autojump }
   - { name: source-highlight }
+  - { name: ghq }
 #  - { name: evm }
 #  - { name: boris }
 #  - { name: composer }
