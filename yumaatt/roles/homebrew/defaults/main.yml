@@ -59,6 +59,7 @@ homebrew_packages:
   - { name: autojump }
   - { name: source-highlight }
   - { name: ghq }
+  - { name: telnet }
 #  - { name: evm }
 #  - { name: boris }
 #  - { name: composer }
