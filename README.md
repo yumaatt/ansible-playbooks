@@ -19,9 +19,9 @@ ansible-playbook site.yml -i hosts -l admin-development-vagrant_ubuntu14 -k
 
 # mac
 cd /path/to/ansible-playbooks/yumaatt
-touch private_vars/admin{, -development, -development-mac}.yml
+touch private_vars/admin{,-development,-development-mac}.yml
 //vim private_vars/admin.yml
-vim private_vars/admin-development.yml
+//vim private_vars/admin-development.yml
 //vim private_vars/admin-development-mac.yml
 ansible-playbook site.yml -i hosts -l admin-development-mac -K -C
 ansible-playbook site.yml -i hosts -l admin-development-mac -K
